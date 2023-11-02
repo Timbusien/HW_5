@@ -30,7 +30,6 @@ hodim_yellow.start()
 hodim_green.start()
 
 
-import time
 def sync_traffic_light():
     while True:
         print("Красный")
@@ -45,29 +44,17 @@ sync_traffic_light()
 
 import asyncio
 
-
-async def red_():
+async def light():
     while True:
+        print("Красный")
         await asyncio.sleep(5)
-        print('красный')
-
-
-async def yellow_():
-    while True:
-        await asyncio.sleep(10)
-        print('желтый')
-
-
-async def green_():
-    while True:
-        await asyncio.sleep(10)
-        print('зелёный')
-
+        print("Желтый")
+        await asyncio.sleep(2)
+        print("Зеленый")
+        await asyncio.sleep(5)
 
 potok = asyncio.get_event_loop()
-potok.run_until_complete(red_())
-potok.run_until_complete(yellow_())
-potok.run_until_complete(green_())
+potok.run_until_complete(light()) 
 
 
 
